@@ -5,7 +5,7 @@ D = int(sys.stdin.readline().strip())
 X = int(sys.stdin.readline().strip())
 
 #find min
-for i in range(L,D):
+for i in range(L,D+1):
     i = str(i)
     i = [int(x) for x in i]
     if sum(i) == X:
@@ -15,7 +15,7 @@ for i in range(L,D):
         break
 
 #find max
-for i in range(D,L,-1):
+for i in range(D,L-1,-1):
     i = str(i)
     i = [int(x) for x in i]
     if sum(i) == X:
