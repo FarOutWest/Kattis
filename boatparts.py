@@ -2,10 +2,9 @@ a = [int(i) for i in input().split()]
 parts = []
 done = False
 for i in range(a[1]):
-    print('i = ', i)
-    if input() not in parts:
-        print('appended')
-        parts.append(input())
+    val = input()
+    if val not in parts:
+        parts.append(val)
     if len(parts) == a[0]:
         print(i+1)
         done = True
