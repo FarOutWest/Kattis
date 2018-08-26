@@ -9,12 +9,14 @@ shifts = {'A':0, 'B':1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6,
           'O':14, 'P':15, 'Q':16, 'R':17, 'S':18, 'T':19,'U':20,
           'V':21, 'W':22, 'X':23, 'Y':24, 'Z':25}
 shiftnums, cyphernums, ans = [], [], []
-for ch in cypher: cyphernums.append(shifts.get(ch))
+cyphernums = [shifts.get(ch) for ch in cypher]
 while len(ans) < len(cypher):
     secret = og_secret + ans
     shiftnums, ans = [], []
-    for ch in secret: shiftnums.append(shifts.get(ch))
-    for i in range(len(secret)):
+    shiftnums = [shifts.get(ch) for ch in secret]
+    loop_to = len(secret)
+    if len(cypher) < loop_to: loop_to = len(cypher)
+    for i in range(loop_to):
         shift = cyphernums[i] - shiftnums[i]
         if shift < 0: shift = 26 + shift
         ans.append(list(shifts.keys())[list(shifts.values()).index(shift)])
