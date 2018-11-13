@@ -20,13 +20,13 @@ for r in range(R):
             continue
 
         fill = type_grid[r][c]
-        colour = next(count)
+        color = next(count)
         q = [(r, c)]
         while q:
             r, c = q.pop()
             if col_grid[r][c] is not None:
                 continue
-            col_grid[r][c] = colour
+            col_grid[r][c] = color
 
             if r + 1 < R and col_grid[r+1][c] is None and type_grid[r+1][c] == fill:
                 q.append((r+1, c))
